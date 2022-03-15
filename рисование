@@ -1,0 +1,102 @@
+using System;
+using System.Threading;
+class Program
+{
+    static void Main()
+    {
+        Console.CursorVisible = false;
+        Console.Title = "СВЕТОВОЙ МЕЧ (ПОХОЖ НА МЕЧ ЭНАКИНА СКАЙОКЕРА)";
+        int indicator = 0;
+        while (true)
+        {
+            if (indicator % 2 == 0)
+            {
+                for (int i = 0; i < 92; i ++)
+                {
+                    if (i < 28)
+                    {
+                        Handle(i);
+                    }
+                    if (i > 27)
+                    {
+                        if (i % 2 == 1)
+                        {
+                            Console.SetCursorPosition(i, 10);
+                            Console.Write("*");
+                            Console.SetCursorPosition(i, 11);
+                            Console.Write(" ");
+                        }
+                        else
+                        {
+                            Console.SetCursorPosition(i, 10);
+                            Console.Write(" ");
+                            Console.SetCursorPosition(i, 11);
+                            Console.Write("*");
+                        }
+                    }
+                }
+            }
+            else if (indicator % 2 == 1)
+            {
+                for (int i = 0; i < 92; i++)
+                {
+                    if (i > 27)
+                    {
+                        if (i % 2 == 1)
+                        {
+                            Console.SetCursorPosition(i, 10);
+                            Console.Write(" ");
+                            Console.SetCursorPosition(i, 11);
+                            Console.Write("*");
+                        }
+                        else
+                        { 
+                            Console.SetCursorPosition(i, 10);
+                            Console.Write("*");
+                            Console.SetCursorPosition(i, 11);
+                            Console.Write(" ");
+                        }
+                    }
+                    else
+                    {
+                        Handle(i);
+                    }
+                }
+            }
+         indicator++;
+        }
+    }
+    static void Handle(int num)
+    {
+        if (num == 10 || num == 11 || num >= 17 && num <= 22 || num == 24 || num == 26)
+        {
+            Console.SetCursorPosition(num, 10);
+            Console.Write("#");
+            Console.SetCursorPosition(num, 11);
+            Console.Write("#");
+        }
+        else if (num >= 12 && num <= 16)
+        {
+            Console.SetCursorPosition(num, 10);
+            Console.Write("%");
+            Console.SetCursorPosition(num, 11);
+            Console.Write("%");
+        }
+        else if (num == 23 || num == 25)
+        {
+            Console.SetCursorPosition(num, 9);
+            Console.Write("#");
+            Console.SetCursorPosition(num, 10);
+            Console.Write("#");
+            Console.SetCursorPosition(num, 11);
+            Console.Write("#");
+        }
+        else if (num == 27)
+        {
+            Console.SetCursorPosition(num, 10);
+            Console.Write("#");
+            Console.SetCursorPosition(num, 11);
+            Console.Write(" ");
+        }
+    }
+}
